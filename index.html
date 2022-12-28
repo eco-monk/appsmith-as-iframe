@@ -1,7 +1,11 @@
 <html>
   <body>
-    Send "Parent message" <button onclick="sendMessage('Parent message')">send</button>
-    Send [ 1, 2, 3 ] <button onclick="sendMessage([1, 2, 3])">send</button>
+    <p>
+      Send "Parent message" <button onclick="sendMessage('Parent message')">send</button>
+      Send [ 1, 2, 3 ] <button onclick="sendMessage([1, 2, 3])">send</button>
+      Send complex array <button onclick="sendComplexMessage(1)">send</button>
+    </p>
+    
   <iframe id="frameEle" src="https://appsmith-emxddheqv-get-appsmith.vercel.app/app/web-page-639fd84b326af108c6f82d07" style="height:500px;width:1000px;"></iframe>
     <script>
        
@@ -9,6 +13,29 @@
    function sendMessage(data) {
        console.log("send triggered", data);
        frameEle.contentWindow.postMessage(data, '*');
+   }
+      
+   function sendComplexMessage(type) {
+    let data = "data";
+    switch (type) {
+      case 1:
+        data = [
+          {
+            "label": "Blue",
+            "value": "BLUE"
+          },
+          {
+            "label": "Green",
+            "value": "GREEN"
+          },
+          {
+            "label": "Red",
+            "value": "RED"
+          }
+        ];
+        break;
+     }
+     sendMessage(data);
    }
    
    window.addEventListener('message', function (e) {
