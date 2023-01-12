@@ -7,7 +7,6 @@
     </p>
     
   <iframe id="frameEle" src="https://dev.appsmith.com/app/eco-monk-639fd84b326af108c6f82d07" style="height:500px;width:1000px;"></iframe>
-      <iframe id="frameEle1" src="https://dev.appsmith.com/app/eco-monk-639fd84b326af108c6f82d07" style="height:500px;width:1000px;"></iframe>
     <script>
        
    const frameEle = document.getElementById("frameEle");
@@ -15,7 +14,6 @@
    function sendMessage(data) {
        console.log("send triggered", data);
        frameEle.contentWindow.postMessage(data, '*');
-       frameEle1.contentWindow.postMessage(data, '*');
    }
       
    function sendComplexMessage(type) {
